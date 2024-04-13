@@ -9,10 +9,15 @@ export class UsuarioService {
 
   constructor(private firestore: Firestore) {
   }
+  testConnection() {
+    const usuarioRef = collection(this.firestore, 'Usuario');
+    console.log(usuarioRef)
+  }
 
   addUsuario(usuario: Usuario) {
     const usuarioRef = collection(this.firestore, 'Usuario');
-    return addDoc(usuarioRef, usuario)
+    //return addDoc(usuarioRef, usuario)
+    return null;
   }
 
   getUsuarios() {
