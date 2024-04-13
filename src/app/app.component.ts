@@ -6,21 +6,20 @@ import { UsuarioService } from './services/usuario.service';
 import { collection, Firestore, getDocs } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 import { Usuario } from '../interfaces/usuario.model';
-import { CardUsuario } from './components/cardUsuario/cardUser.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, CardComponent, AsyncPipe, CardUsuario,
+  imports: [CommonModule, RouterOutlet, CardComponent, AsyncPipe,
     ReactiveFormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'PrestamoRecursos';
-  private userService = inject(UsuarioService);
+  private usuarioService = inject(UsuarioService);
   usuarios$!: Observable<Usuario[]>;
 
   createUsuarioForm = new FormGroup({
@@ -43,7 +42,7 @@ export class AppComponent {
   });
 
   constructor() {
-    this.usuarios$ = this.userService.getUsuarios();
+    this.usuarios$ = this.usuarioService.getUsuarios();
   }
 
   ngOnInit() {
@@ -53,7 +52,7 @@ export class AppComponent {
   async onCreateSubmit() {
     if (this.createUsuarioForm.invalid) return;
     const usuario = this.createUsuarioForm.value as Usuario;
-    await this.userService.createUsuario({
+    await this.usuarioService.createUsuario({
       nombres: usuario.nombres,
       apellidos: usuario.apellidos,
       idUsuario: usuario.idUsuario,
@@ -71,14 +70,14 @@ export class AppComponent {
     } as Usuario;
     const dbIdUsuario = this.updateUsuarioForm.value.dbIdUsuario as string;
 
-    await this.userService.updateUsuario(dbIdUsuario, { ...usuario })
+    await this.usuarioService.updateUsuario(dbIdUsuario, { ...usuario })
   }
 
   async onDeleteSubmit() {
     if (this.deleteUsuarioForm.invalid) return;
     try {
-      const dbIdUsuario = this.deleteUsuarioForm.value.idUsuario as string;      
-      await this.userService.deleteUsuario(dbIdUsuario)
+      const dbIdUsuario = this.deleteUsuarioForm.value.idUsuario as string;
+      await this.usuarioService.deleteUsuario(dbIdUsuario)
     } catch (error) {
       console.log(error);
     }

@@ -26,8 +26,8 @@ export class UsuarioService {
   private _collection = collection(this._firestore, 'Usuario');
 
   getUsuarios(): Observable<Usuario[]> {
-    const users = collectionData(this._collection) as Observable<Usuario[]>;
-    return users;
+    const usuarios = collectionData(this._collection) as Observable<Usuario[]>;
+    return usuarios;
   }
 
   async getOneUsuario(id: string) {
