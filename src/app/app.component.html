@@ -1,4 +1,5 @@
 <div class="text-sm">
   <app-card></app-card>
   <button (click)="handleClick()">Click</button>
+  <li *ngFor="let usuario of usuarios$ | async"> y los usuarios?{{usuario.apellidos}}</li>
 </div>

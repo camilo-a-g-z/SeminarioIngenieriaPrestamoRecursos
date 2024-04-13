@@ -1,27 +1,31 @@
-import { Injectable } from '@angular/core';
-import { Firestore, collection, addDoc } from '@angular/fire/firestore';
+import { inject, Injectable } from '@angular/core';
 import { Usuario } from '../modelo/usuario.model';
+import {
+  Firestore,
+  addDoc,
+  collection,
+  collectionData,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  updateDoc,
+  where,
+} from '@angular/fire/firestore';
+
+import { map, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsuarioService {
+  private _firestore = inject(Firestore);
 
-  constructor(private firestore: Firestore) {
+  private _collection = collection(this._firestore, 'Usuario');
+
+  getUsuarios(): Observable<Usuario[]> {
+    const users = collectionData(this._collection) as Observable<Usuario[]>;
+    return users;
   }
-  testConnection() {
-    const usuarioRef = collection(this.firestore, 'Usuario');
-    console.log(usuarioRef)
-  }
-
-  addUsuario(usuario: Usuario) {
-    const usuarioRef = collection(this.firestore, 'Usuario');
-    //return addDoc(usuarioRef, usuario)
-    return null;
-  }
-
-  getUsuarios() {
-
-  }
-
 }
