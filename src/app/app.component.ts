@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { CardComponent } from './components/card/card/card.component';
@@ -20,12 +20,15 @@ export class AppComponent {
 
   }
 
-  // async ngOnInit(): Promise<void> {
-  //   const response = await this.usuarioService.addUsuario({
-  //     apellidos: 'Díaz Vargas',
-  //     nombres: 'Miguel Nicolás',
-  //     correo: 'nitachi@gmail.com'
-  //   })
-  //   console.log(response)
-  // }
+  ngOnInit() {
+  }
+
+  async handleClick() {
+    const response = await this.usuarioService.addUsuario({
+      apellidos: 'Díaz Vargas',
+      nombres: 'Miguel Nicolás',
+      correo: 'nitachi@gmail.com'
+    })
+    console.log(response)
+  }
 }
