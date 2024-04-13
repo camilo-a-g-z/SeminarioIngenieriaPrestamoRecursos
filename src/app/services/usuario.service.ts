@@ -11,7 +11,7 @@ export class UsuarioService {
   }
 
   addUsuario(usuario: Usuario) {
-    const usuarioRef = collection(this.firestore, 'Usuario');
+    const usuarioRef = collection(this.firestore, 'usuario');
     return addDoc(usuarioRef, usuario)
   }
 
