@@ -5,7 +5,7 @@ import { CardComponent } from './components/card/card/card.component';
 import { UsuarioService } from './services/usuario.service';
 import { collection, Firestore, getDocs } from 'firebase/firestore';
 import { Observable } from 'rxjs';
-import { Usuario } from './modelo/usuario.model';
+import { Usuario } from '../interfaces/usuario.model';
 
 @Component({
   selector: 'app-root',
