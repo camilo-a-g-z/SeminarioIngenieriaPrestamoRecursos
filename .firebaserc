@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "prestamorecursos-b7f68": {
+      "hosting": {
+        "prestamorecursos": [
+          "prestamorecursos-b7f68"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "prestamorecursos-b7f68"
+  }
+}

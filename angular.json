@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "PrestamoRecursos": {
+    "prestamorecursos": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -101,6 +101,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "prestamorecursos:build:production",
+              "serveTarget": "prestamorecursos:serve:production"
+            },
+            "development": {
+              "buildTarget": "prestamorecursos:build:development",
+              "serveTarget": "prestamorecursos:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

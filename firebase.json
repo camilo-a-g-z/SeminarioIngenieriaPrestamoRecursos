@@ -1,0 +1,11 @@
+{
+  "hosting": [
+    {
+      "target": "prestamorecursos",
+      "source": ".",
+      "frameworksBackend": {
+        "region": "us-east1"
+      }
+    }
+  ]
+}

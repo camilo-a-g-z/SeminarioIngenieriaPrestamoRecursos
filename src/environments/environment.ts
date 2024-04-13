@@ -1,5 +1,5 @@
 export const environment = {
-  fierebaseConfig: {
+  firebaseConfig: {
     apiKey: "AIzaSyCf_aXYyoc22QCPRMMdQf693794RqxwWOo",
     authDomain: "prestamorecursos-b7f68.firebaseapp.com",
     projectId: "prestamorecursos-b7f68",
