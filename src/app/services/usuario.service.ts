@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { Usuario } from '../modelo/usuario.model';
+import { Usuario } from '../../interfaces/usuario.model';
 import {
   Firestore,
   addDoc,
