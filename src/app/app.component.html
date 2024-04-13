@@ -1,5 +1,69 @@
 <div class="text-sm">
-  <app-card></app-card>
-  <button (click)="handleClick()">Click</button>
-  <li *ngFor="let usuario of usuarios$ | async"> y los usuarios?{{usuario.apellidos}}</li>
+  <h1>CRUD DEMO Usuarios</h1>
+  <div>
+    <form [formGroup]="createUsuarioForm" (submit)="onCreateSubmit()">
+      <h2>Crear Usuario</h2>
+      <div>
+        <label for="nombres">Nombres:</label>
+        <input style='background-color: aqua;' type="text" formControlName="nombres" id="nombres">
+      </div>
+      <div>
+        <label for="apellidos">Apellidos:</label>
+        <input style='background-color: aqua;' type="text" formControlName="apellidos" id="apellidos">
+      </div>
+      <div>
+        <label for="correo">Correo:</label>
+        <input style='background-color: aqua;' type="text" formControlName="correo" id="correo">
+      </div>
+      <div>
+        <label for="idUsuario">Id Usuario:</label>
+        <input style='background-color: aqua;' type="text" formControlName="idUsuario" id="idUsuario">
+      </div>
+      <button style='background-color: aqua;' type='submit'>Enviar</button>
+    </form>
+
+  </div>
+
+
+  <div style='padding-top: 30px;'>
+    <form [formGroup]="updateUsuarioForm" (submit)="onUpdateSubmit()">
+      <h2>Actualizar Usuario</h2>
+      <div>
+        <label for="dbIdUsuario">DB Id Usuario:</label>
+        <input style='background-color: aqua;' type="text" formControlName="dbIdUsuario" id="dbIdUsuario">
+      </div>
+      <div>
+        <label for="idUsuario">Id Usuario:</label>
+        <input style='background-color: aqua;' type="text" formControlName="idUsuario" id="idUsuario">
+      </div>
+      <div>
+        <label for="nombres">Nombres:</label>
+        <input style='background-color: aqua;' type="text" formControlName="nombres" id="nombres">
+      </div>
+      <div>
+        <label for="apellidos">Apellidos:</label>
+        <input style='background-color: aqua;' type="text" formControlName="apellidos" id="apellidos">
+      </div>
+      <div>
+        <label for="correo">Correo:</label>
+        <input style='background-color: aqua;' type="text" formControlName="correo" id="correo">
+      </div>
+      <button style='background-color: aqua;' type='submit'>Actualizar</button>
+    </form>
+  </div>
+
+  <div style='padding-top: 30px;'>
+    <form [formGroup]="deleteUsuarioForm" (submit)="onDeleteSubmit()">
+      <h2>Eliminar Usuario</h2>
+      <div>
+        <label for="idUsuario">DB Id Usuario:</label>
+        <input style='background-color: aqua;' type="text" formControlName="idUsuario" id="idUsuario">
+      </div>
+      <button style='background-color: aqua;' type='submit'>Eliminar</button>
+    </form>
+  </div>
+  <ul style='padding-top: 30px;'>
+    <li *ngFor="let usuario of usuarios$ | async">Nombre: {{usuario.nombres}} ||| Apellido: {{usuario.apellidos}} |||
+      idUsuario: {{usuario.idUsuario}} ||| Correo: {{usuario.correo}}</li>
+  </ul>
 </div>
