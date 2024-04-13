@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:PrestamoRecursos": "node dist/prestamo-recursos/server/server.mjs"
+    "serve:ssr:prestamorecursos": "node dist/prestamo-recursos/server/server.mjs"
   },
   "private": true,
   "dependencies": {
