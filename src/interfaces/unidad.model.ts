@@ -1,13 +1,13 @@
 export interface Unidad {
   horEntSem: {
-    fin: string,
-    inicio: string
+    fin: Date,
+    inicio: Date
   };
   horFinSem: {
-    fin: string,
-    inicio: string
+    fin: Date,
+    inicio: Date
   };
   idUnidad: string;
   nombre: string,
-  tMinPrestamo: string;
+  tMinPrestamo: number;
 }

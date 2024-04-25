@@ -5,4 +5,5 @@ export interface Reserva {
     inicio: string
   };
   idReserva: string;
+  idUsuario: string;
 }
